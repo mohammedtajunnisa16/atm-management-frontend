@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAJ AURA - Stop Cheque</title>
+    <link rel="stylesheet" href="stop-cheque.css">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/8983/8983163.png">
+</head>
+<body>
+<div class="atm">
+    <div class="led-border"></div>
+    <header class="top">
+        <div class="brand">
+            <div class="logo">T</div>
+            <div class="brand-text">
+                <h2>TAJ AURA</h2>
+                <span>SMART ATM</span>
+            </div>
+        </div>
+        <div class="secure">
+            <span></span>
+            SECURE CONNECTION
+        </div>
+    </header>
+    <main class="stop-screen">
+        <div class="heading">
+            <span>CHEQUE SERVICES</span>
+            <h1>STOP CHEQUE</h1>
+            <p>Place a stop request on an issued cheque</p>
+        </div>
+        <section class="stop-panel">
+            <div class="panel-title">
+                <div class="warning-icon">!</div>
+                <div>
+                    <span>PAYMENT PROTECTION</span>
+                    <h2>Stop a Cheque</h2>
+                </div>
+            </div>
+            <div class="account-box">
+                <div>
+                    <span>ACCOUNT</span>
+                    <strong>•••• •••• 4826</strong>
+                </div>
+                <div>
+                    <span>ACCOUNT HOLDER</span>
+                    <strong>KAREENA</strong>
+                </div>
+            </div>
+            <div class="form-area">
+                <div class="field">
+                    <label>CHEQUE NUMBER</label>
+                    <input
+                        type="text"
+                        placeholder="Enter cheque number"
+                        maxlength="6"
+                    >
+                </div>
+                <div class="field">
+                    <label>REASON FOR STOP REQUEST</label>
+                    <select>
+                        <option value="">
+                            Select reason
+                        </option>
+                        <option>
+                            Cheque Lost
+                        </option>
+                        <option>
+                            Cheque Stolen
+                        </option>
+                        <option>
+                            Payment Not Required
+                        </option>
+                        <option>
+                            Other Reason
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="warning">
+                <div class="warning-small">!</div>
+                <p>
+                    Once confirmed, the selected cheque will be marked
+                    for payment stoppage. This action may not be reversible.
+                </p>
+            </div>
+            <div class="actions">
+                <a href="cheque-services.html"
+                   class="cancel-btn">
+                    CANCEL
+                </a>
+                <a href="stop-cheque-success.html" class="stop-btn">
+                    STOP CHEQUE
+                    <b>→</b>
+                </a>
+            </div>
+        </section>
+        <div class="bottom">
+            <div class="system">
+                <span></span>
+                SYSTEM SECURE
+            </div>
+            <a href="index.html" class="exit">
+                EXIT
+            </a>
+        </div>
+    </main>
+</div>
+</body>
+</html>

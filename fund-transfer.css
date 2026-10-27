@@ -1,0 +1,646 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+body {
+    overflow: hidden;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #080604;
+}
+/* MAIN ATM */
+.atm {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    color: #f6e7bc;
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(180, 135, 38, .10),
+            transparent 42%
+        ),
+        linear-gradient(
+            135deg,
+            #070604 0%,
+            #151006 48%,
+            #080604 100%
+        );
+}
+/* GOLD BORDER */
+.led-border {
+    position: absolute;
+    inset: 9px;
+    border: 4px solid #765b20;
+    border-radius: 18px;
+    z-index: 50;
+    pointer-events: none;
+    box-shadow:
+        0 0 8px rgba(218, 176, 67, .45),
+        0 0 22px rgba(218, 176, 67, .14),
+        inset 0 0 18px rgba(218, 176, 67, .07);
+    overflow: hidden;
+}
+/* TOP BRAND */
+.top {
+    position: relative;
+    z-index: 10;
+    height: 105px;
+    padding: 20px 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+}
+.logo {
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #c6a34b;
+    border-radius: 10px;
+    color: #ffe8a0;
+    background:
+        linear-gradient(
+            145deg,
+            #35270b,
+            #100c05
+        );
+    font-family: Georgia, serif;
+    font-size: 31px;
+    font-weight: bold;
+    box-shadow:
+        0 0 14px rgba(207, 166, 66, .18);
+}
+.brand-name h2 {
+    color: #f4e5bb;
+    font-family: Georgia, serif;
+    font-size: 29px;
+    letter-spacing: 6px;
+}
+.brand-name span {
+    display: block;
+    margin-top: 3px;
+    color: #bd9942;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+/* SECURE */
+.secure {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #c5b27e;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+.secure span {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #d5b457;
+    box-shadow:
+        0 0 10px rgba(213, 180, 87, .75);
+    animation: securePulse 2s ease-in-out infinite;
+}
+@keyframes securePulse {
+    0%,
+    100% {
+        opacity: .45;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+/* FUND TRANSFER */
+.transfer-screen {
+    position: relative;
+    z-index: 5;
+    width: 920px;
+    margin: 5px auto 0;
+    text-align: center;
+}
+/* HEADING */
+.page-heading > span {
+    color: #c9a64b;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 4px;
+}
+.page-heading h1 {
+    margin-top: 5px;
+    color: #fff3cf;
+    font-size: 40px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    animation: headingIn .7s ease-out both;
+}
+.page-heading p {
+    margin-top: 5px;
+    color: #b0a078;
+    font-size: 15px;
+    animation: headingIn .7s ease-out .15s both;
+}
+@keyframes headingIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* WORKSPACE */
+.transfer-panel {
+    position: relative;
+    width: 820px;
+    margin: 22px auto 0;
+    padding: 24px 35px 20px;
+    border-top: 1px solid rgba(208, 169, 70, .40);
+    border-bottom: 1px solid rgba(208, 169, 70, .25);
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(205, 164, 65, .035),
+            transparent
+        );
+    animation: panelAppear .7s ease-out .2s both;
+}
+@keyframes panelAppear {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* ACCOUNT ROW */
+.account-section {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+.section-label {
+    width: 190px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    text-align: left;
+}
+.number {
+    color: #bd9942;
+    font-size: 25px;
+    font-weight: 300;
+}
+.section-label small {
+    display: block;
+    color: #88764c;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+.section-label strong {
+    display: block;
+    margin-top: 4px;
+    color: #e7d9b2;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+/* ACCOUNT */
+.account-field {
+    flex: 1;
+    min-height: 68px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 18px;
+    text-align: left;
+    border-left: 3px solid #8f7129;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(139, 107, 37, .12),
+            rgba(255, 255, 255, .015)
+        );
+}
+.bank-mark a{
+    width: 43px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid #a78637;
+    border-radius: 8px;
+    color: #f1d580;
+    text-decoration: none;
+    font-family: Georgia, serif;
+    font-size: 21px;
+}
+.account-field > div:nth-child(2) {
+    flex: 1;
+}
+.account-field span {
+    display: block;
+    color: #8c7950;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+.account-field strong {
+    display: block;
+    margin-top: 5px;
+    color: #f1e4c2;
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+.verified {
+    color: #d8b454;
+    font-size: 22px;
+}
+/* TRANSFER */
+.transfer-arrow {
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+.arrow-line {
+    width: 250px;
+    height: 1px;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #725a24,
+            transparent
+        );
+}
+/* Gold transfer light */
+.arrow-icon {
+    animation: none;
+    border-color: #a98532;
+    color: #e8c961;
+    box-shadow:
+        0 0 8px rgba(220, 181, 72, .18);
+}
+/* LED */
+.led-border {
+    animation: ledBreathing 4s ease-in-out infinite;
+}
+@keyframes ledBreathing {
+    0%,
+    100% {
+        border-color: #66501c;
+        box-shadow:
+            0 0 6px rgba(210, 170, 65, .28),
+            0 0 16px rgba(210, 170, 65, .08),
+            inset 0 0 12px rgba(210, 170, 65, .04);
+    }
+    50% {
+        border-color: #a9822d;
+        box-shadow:
+            0 0 10px rgba(225, 185, 70, .42),
+            0 0 24px rgba(225, 185, 70, .12),
+            inset 0 0 16px rgba(225, 185, 70, .06);
+    }
+}
+/* TRANSFER FLOW */
+.transfer-arrow {
+    position: relative;
+}
+/* Thin gold flow line */
+.arrow-line {
+    position: relative;
+    overflow: hidden;
+}
+/* Moving light */
+.arrow-line::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -35px;
+    width: 35px;
+    height: 1px;
+    background: #e5c45e;
+    box-shadow:
+        0 0 7px #e5c45e;
+    animation: transferFlow 2.8s ease-in-out infinite;
+}
+@keyframes transferFlow {
+    0% {
+        left: -35px;
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
+}
+/* AMOUNT */
+.amount-area {
+    margin-top: 16px;
+    padding-top: 15px;
+    border-top:
+        1px solid
+        rgba(188, 151, 60, .20);
+}
+.amount-area > span {
+    color: #a58b50;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+.amount-input {
+    width: 430px;
+    height: 64px;
+    margin: 8px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border:
+        2px solid
+        #7d6225;
+    border-radius: 7px;
+    background:
+        linear-gradient(
+            135deg,
+            #211807,
+            #0e0b06
+        );
+    box-shadow:
+        inset 0 0 15px rgba(218, 177, 67, .05);
+    animation: amountGlow 3s ease-in-out infinite;
+}
+.amount-input b {
+    color: #d6b75e;
+    font-family: Georgia, serif;
+    font-size: 25px;
+    font-weight: 400;
+}
+.amount-input strong {
+    color: #fff0bd;
+    font-size: 31px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+.amount-input i {
+    color: #88754a;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+/* STATUS*/
+.transfer-status {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 42px;
+}
+.status-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.status-line span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #453a21;
+}
+.status-line p {
+    color: #766b50;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.status-line.active span {
+    background: #e0bd58;
+    box-shadow:
+        0 0 9px rgba(224, 189, 88, .65);
+    animation: statusGlow 1.5s infinite;
+}
+.status-line.active p {
+    color: #cbb77e;
+}
+@keyframes statusGlow {
+    0%,
+    100% {
+        opacity: .45;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+/* BUTTONS */
+.actions {
+    margin-top: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.actions a {
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    transition: .25s ease;
+}
+/* CANCEL */
+.cancel-btn {
+    width: 170px;
+    color: #b6aa8d;
+    border:
+        2px solid
+        #514932;
+    background: #100d08;
+}
+.cancel-btn:hover {
+    color: #eee1bd;
+    border-color: #887649;
+    background: #211b0d;
+    transform: translateY(-2px);
+}
+/* CONTINUE */
+.continue-btn {
+    width: 220px;
+    gap: 13px;
+    color: #fff0bd;
+    border:
+        2px solid
+        #c09b3e;
+    background:
+        linear-gradient(
+            135deg,
+            #382908,
+            #171005
+        );
+    box-shadow:
+        0 0 12px
+        rgba(205, 166, 64, .16);
+}
+.continue-btn span {
+    font-size: 23px;
+    transition: transform .25s ease;
+}
+.continue-btn:hover {
+    color: #fff8dc;
+    border-color: #f0d16d;
+    background:
+        linear-gradient(
+            135deg,
+            #503b0e,
+            #241a07
+        );
+    box-shadow:
+        0 0 22px
+        rgba(231, 193, 83, .30);
+    transform: translateY(-2px);
+}
+.continue-btn:hover span {
+    transform: translateX(6px);
+}
+/* TEXT */
+.bottom-note {
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #756644;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+.bottom-note span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #c4a249;
+    box-shadow:
+        0 0 7px
+        rgba(196, 162, 73, .5);
+}
+@media (max-height: 800px) {
+    .top {
+        height: 85px;
+        padding: 13px 60px;
+    }
+    .logo {
+        width: 46px;
+        height: 46px;
+        font-size: 26px;
+    }
+    .brand-name h2 {
+        font-size: 24px;
+    }
+    .transfer-screen {
+        margin-top: 0;
+    }
+    .page-heading h1 {
+        font-size: 34px;
+    }
+    .transfer-panel {
+        margin-top: 14px;
+        padding:
+            15px 30px 13px;
+    }
+    .account-field {
+        min-height: 59px;
+    }
+    .amount-area {
+        margin-top: 9px;
+        padding-top: 9px;
+    }
+    .amount-input {
+        height: 53px;
+    }
+    .amount-input strong {
+        font-size: 27px;
+    }
+    .transfer-status {
+        margin-top: 9px;
+    }
+    .actions {
+        margin-top: 12px;
+    }
+    .bottom-note {
+        margin-top: 7px;
+    }
+}
+@media (max-height: 850px) {
+    .top {
+        height: 82px;
+        padding: 10px 55px;
+    }
+    .transfer-screen {
+        margin-top: 0;
+    }
+    .page-heading h1 {
+        font-size: 34px;
+        margin-top: 3px;
+    }
+    .page-heading p {
+        margin-top: 3px;
+    }
+    .transfer-panel {
+        margin-top: 14px;
+        padding: 15px 30px 12px;
+    }
+    .account-field {
+        min-height: 56px;
+    }
+    .transfer-arrow {
+        height: 28px;
+    }
+    .amount-area {
+        margin-top: 9px;
+        padding-top: 9px;
+    }
+    .amount-input {
+        height: 52px;
+    }
+    .transfer-status {
+        margin-top: 8px;
+    }
+    .actions {
+        margin-top: 11px;
+    }
+    .bottom-note {
+        margin-top: 6px;
+    }
+}

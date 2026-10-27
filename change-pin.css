@@ -1,0 +1,556 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+body {
+    overflow: hidden;
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+    background: #080604;
+}
+/* ATM */
+.atm {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    color: #f4e6bd;
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(190, 145, 40, .10),
+            transparent 42%
+        ),
+        linear-gradient(
+            135deg,
+            #070604,
+            #171106,
+            #080604
+        );
+}
+/* led border */
+.led-border {
+    position: absolute;
+    inset: 9px;
+    border: 4px solid #765b20;
+    border-radius: 18px;
+    pointer-events: none;
+    z-index: 30;
+    animation:
+        ledGlow 4s ease-in-out infinite;
+}
+@keyframes ledGlow {
+    0%,
+    100% {
+        border-color: #66501c;
+        box-shadow:
+            0 0 8px rgba(210,170,65,.25),
+            inset 0 0 13px rgba(210,170,65,.04);
+    }
+    50% {
+        border-color: #ad8730;
+        box-shadow:
+            0 0 15px rgba(225,185,70,.42),
+            0 0 28px rgba(225,185,70,.10),
+            inset 0 0 17px rgba(225,185,70,.05);
+    }
+}
+/* header */
+.top {
+    position: relative;
+    z-index: 5;
+    height: 88px;
+    padding: 14px 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.logo {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #c6a34b;
+    border-radius: 9px;
+    color: #ffe8a0;
+    background:
+        linear-gradient(
+            145deg,
+            #35270b,
+            #100c05
+        );
+    font-family: Georgia, serif;
+    font-size: 28px;
+    font-weight: bold;
+}
+.brand-text h2 {
+    color: #f4e5bb;
+    font-family: Georgia, serif;
+    font-size: 27px;
+    letter-spacing: 6px;
+}
+.brand-text span {
+    display: block;
+    margin-top: 2px;
+    color: #bd9942;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+/* secure */
+.secure {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #c5b27e;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+.secure span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #d5b457;
+    box-shadow:
+        0 0 10px rgba(213,180,87,.7);
+    animation:
+        securePulse 2s infinite;
+}
+@keyframes securePulse {
+    0%,
+    100% {
+        opacity: .4;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+/* main */
+.pin-screen {
+    position: relative;
+    z-index: 5;
+    width: 900px;
+    margin: 3px auto 0;
+    text-align: center;
+}
+/* heading */
+.pin-heading > span {
+    color: #c9a64b;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 4px;
+}
+.pin-heading h1 {
+    margin-top: 5px;
+    color: #fff3cf;
+    font-size: 35px;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+.pin-heading p {
+    margin-top: 4px;
+    color: #a99970;
+    font-size: 15px;
+}
+/* pin */
+.pin-workspace {
+    width: 760px;
+    height: 420px;
+    margin: 16px auto 0;
+    display: flex;
+    border:
+        1px solid
+        rgba(174,137,52,.35);
+    background:
+        linear-gradient(
+            100deg,
+            rgba(34,25,9,.65),
+            rgba(10,8,5,.90)
+        );
+    box-shadow:
+        inset 0 0 35px
+        rgba(190,145,40,.025);
+}
+/* left panel */
+.pin-info {
+    width: 245px;
+    padding: 45px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    border-right:
+        1px solid
+        rgba(174,137,52,.28);
+}
+.security-mark {
+    width: 58px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border:
+        2px solid
+        #a9822d;
+    border-radius: 50%;
+    color: #e5c765;
+    font-family: Georgia, serif;
+    font-size: 26px;
+    font-weight: bold;
+    background:
+        radial-gradient(
+            circle,
+            #342709,
+            #0e0a05
+        );
+    box-shadow:
+        0 0 20px
+        rgba(210,170,65,.12);
+}
+.pin-info h2 {
+    margin-top: 25px;
+    color: #ead9a9;
+    font-size: 21px;
+    line-height: 1.25;
+    letter-spacing: 2px;
+}
+.pin-info p {
+    margin-top: 16px;
+    color: #9b8962;
+    font-size: 13px;
+    line-height: 1.7;
+}
+.security-line {
+    width: 55px;
+    height: 2px;
+    margin-top: 24px;
+    background: #a9822d;
+    box-shadow:
+        0 0 8px
+        rgba(210,170,65,.25);
+}
+.pin-info small {
+    margin-top: 13px;
+    color: #776544;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+/* form */
+.pin-form {
+    flex: 1;
+    margin-top: -20px;
+    padding: 25px 30px;
+}
+/* pin fields */
+.field {
+    position: relative;
+    height: 57px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    padding: 0 17px;
+    border: 1px solid #51431f;
+    background: #0e0b07;
+    overflow: hidden;
+    transition:
+        border-color .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
+}
+/* GOLD LIGHT ON LEFT */
+.field::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: #c6a34b;
+    box-shadow:
+        0 0 12px rgba(225,185,70,.55);
+    transform: scaleY(0);
+    transform-origin: center;
+    transition:
+        transform .3s ease;
+}
+/* SOFT LIGHT INSIDE */
+.field::after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 0;
+    width: 120px;
+    height: 100%;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(210,170,65,.08),
+            transparent
+        );
+    opacity: 0;
+    transition:
+        opacity .3s ease;
+}
+/* CURRENT DEFAULT */
+.field.active::before {
+    transform: scaleY(1);
+}
+.field.active::after {
+    opacity: 1;
+}
+/* HOVER */
+.field:hover {
+    border-color: #9c7b2f;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(52,39,10,.55),
+            #0e0b07
+        );
+    box-shadow:
+        inset 0 0 18px
+        rgba(210,170,65,.035);
+}
+.field:hover::before {
+    transform: scaleY(1);
+}
+.field:hover::after {
+    opacity: 1;
+}
+/* WHEN MOVING TO ANOTHER FIELD, REMOVE ACTIVE LOOK FROM THE OLD ONE */
+.pin-form:has(.field:hover) .field.active:not(:hover)::before {
+    transform: scaleY(0);
+}
+.pin-form:has(.field:hover) .field.active:not(:hover)::after {
+    opacity: 0;
+}
+/* LABEL */
+.field-label {
+    position: relative;
+    z-index: 2;
+    width: 170px;
+    color: #a79362;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-align: left;
+    transition:
+        color .3s ease;
+}
+/* HOVER LABEL */
+.field:hover .field-label {
+    color: #e5c765;
+}
+/* PIN DOTS */
+.pin-dots {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: 12px;
+}
+.pin-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border:
+        1px solid
+        #80652a;
+    background: transparent;
+    transition:
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+.field:hover .pin-dots span {
+    border-color: #c6a34b;
+    box-shadow:
+        0 0 5px
+        rgba(210,170,65,.25);
+}
+/* keypad */
+.keypad {
+    width: 100%;
+    margin-top: 12px;
+    display: grid;
+    grid-template-columns:
+        repeat(3, 1fr);
+    gap: 7px;
+}
+.keypad button {
+    height: 48px;
+    border:
+        1px solid
+        #675222;
+    border-radius: 5px;
+    color: #ead9a9;
+    background:
+        linear-gradient(
+            145deg,
+            #211a0d,
+            #0d0a06
+        );
+    font-size: 19px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        .18s ease;
+}
+.keypad button:hover {
+    color: #fff0bd;
+    border-color: #c19b3e;
+    background:
+        linear-gradient(
+            145deg,
+            #382a0d,
+            #151005
+        );
+    box-shadow:
+        0 0 12px
+        rgba(220,180,65,.14);
+    transform:
+        translateY(-2px);
+}
+.keypad button:active {
+    transform:
+        scale(.96);
+    border-color:
+        #e1bd58;
+    box-shadow:
+        0 0 16px
+        rgba(225,190,85,.25);
+}
+.keypad .clear,
+.keypad .enter {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+.keypad .clear {
+    color: #a99a77;
+}
+.keypad .enter {
+    color: #f0d985;
+    border-color:
+        #9b792d;
+}
+/* bottom */
+.bottom {
+    width: 760px;
+    margin: 10px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.back,
+.exit {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border:
+        2px solid
+        #514932;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+    transition: .2s ease;
+}
+.back {
+    width: 120px;
+    color: #b6aa8d;
+    background: #100d08;
+}
+.exit {
+    width: 100px;
+    color: #a99d82;
+    background: #100d08;
+}
+.back:hover,
+.exit:hover {
+    color: #eadfbe;
+    border-color: #927a43;
+    transform:
+        translateY(-2px);
+}
+.status {
+    color: #766746;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+.status span {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin-right: 7px;
+    border-radius: 50%;
+    background: #d5b457;
+    box-shadow:
+        0 0 8px
+        rgba(213,180,87,.65);
+    animation:
+        securePulse 2s infinite;
+}
+/* screen*/
+@media (max-height: 800px) {
+    .top {
+        height: 72px;
+        padding: 7px 55px;
+    }
+    .logo {
+        width: 43px;
+        height: 43px;
+        font-size: 24px;
+    }
+    .brand-text h2 {
+        font-size: 23px;
+    }
+    .pin-screen {
+        margin-top: 0;
+    }
+    .pin-heading h1 {
+        font-size: 30px;
+    }
+    .pin-heading p {
+        font-size: 13px;
+    }
+    .pin-workspace {
+        height: 350px;
+        margin-top: 9px;
+    }
+    .pin-info {
+        padding: 30px 25px;
+    }
+    .field {
+        height: 48px;
+        margin-bottom: 5px;
+    }
+    .keypad {
+        margin-top: 7px;
+        gap: 5px;
+    }
+    .keypad button {
+        height: 40px;
+        font-size: 17px;
+    }
+    .bottom {
+        margin-top: 6px;
+    }
+}

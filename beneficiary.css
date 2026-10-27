@@ -1,0 +1,342 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+body {
+    overflow: hidden;
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+    background: #080604;
+}
+/* ATM Background */
+.atm {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    color: #f4e6bd;
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(190, 145, 40, .10),
+            transparent 40%
+        ),
+        linear-gradient(
+            135deg,
+            #070604 0%,
+            #171106 50%,
+            #080604 100%
+        );
+}
+/* LED Border */
+.led-border {
+    position: absolute;
+    inset: 9px;
+    border: 4px solid #765b20;
+    border-radius: 18px;
+    pointer-events: none;
+    z-index: 20;
+    animation:
+        ledBreathing 4s ease-in-out infinite;
+}
+@keyframes ledBreathing {
+    0%,
+    100% {
+        border-color: #66501c;
+        box-shadow:
+            0 0 7px rgba(210, 170, 65, .25),
+            0 0 18px rgba(210, 170, 65, .07),
+            inset 0 0 14px rgba(210, 170, 65, .04);
+    }
+    50% {
+        border-color: #a9822d;
+        box-shadow:
+            0 0 12px rgba(225, 185, 70, .40),
+            0 0 25px rgba(225, 185, 70, .11),
+            inset 0 0 17px rgba(225, 185, 70, .06);
+    }
+}
+/* header */
+.top {
+    position: relative;
+    z-index: 5;
+    height: 92px;
+    padding: 16px 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.logo {
+    width: 51px;
+    height: 51px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #c6a34b;
+    border-radius: 10px;
+    color: #ffe8a0;
+    background:
+        linear-gradient(
+            145deg,
+            #35270b,
+            #100c05
+        );
+    font-family: Georgia, serif;
+    font-size: 29px;
+    font-weight: bold;
+}
+.brand-name h2 {
+    color: #f4e5bb;
+    font-family: Georgia, serif;
+    font-size: 27px;
+    letter-spacing: 6px;
+}
+.brand-name span {
+    display: block;
+    margin-top: 2px;
+    color: #bd9942;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+/* secure */
+.secure {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #c5b27e;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+.secure span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #d5b457;
+    box-shadow:
+        0 0 10px rgba(213, 180, 87, .7);
+    animation: securePulse 2s infinite;
+}
+@keyframes securePulse {
+    0%,
+    100% {
+        opacity: .4;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+/* main */
+.keypad-screen {
+    position: relative;
+    z-index: 5;
+    width: 700px;
+    margin: 5px auto 0;
+    text-align: center;
+}
+/* heading */
+.heading > span {
+    color: #c9a64b;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 4px;
+}
+.heading h1 {
+    margin-top: 5px;
+    color: #fff3cf;
+    font-size: 34px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+.heading p {
+    margin-top: 4px;
+    color: #a99970;
+    font-size: 14px;
+}
+/* account display*/
+.account-display {
+    width: 500px;
+    height: 75px;
+    margin: 17px auto 15px;
+    padding: 10px 20px;
+    border: 2px solid #80652a;
+    border-radius: 8px;
+    background:
+        linear-gradient(
+            135deg,
+            #211807,
+            #0d0a05
+        );
+    box-shadow:
+        inset 0 0 20px rgba(215, 174, 66, .04);
+}
+.account-display small {
+    display: block;
+    color: #907b4e;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+.display-number {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+}
+.display-number span {
+    color: #e9cf76;
+    font-size: 19px;
+    letter-spacing: 3px;
+}
+/* keypad*/
+.keypad {
+    width: 480px;
+    margin: auto;
+    display: grid;
+    grid-template-columns:
+        repeat(3, 1fr);
+    gap: 9px;
+}
+.keypad button {
+    height: 57px;
+    border: 1px solid #765c25;
+    border-radius: 7px;
+    color: #f4e5bd;
+    background:
+        linear-gradient(
+            145deg,
+            #211a0e,
+            #0e0b07
+        );
+    font-size: 22px;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow:
+        inset 0 0 12px
+        rgba(215, 174, 66, .025);
+    transition:
+        .18s ease;
+}
+.keypad button:hover {
+    color: #fff2bd;
+    border-color: #c09b3e;
+    background:
+        linear-gradient(
+            145deg,
+            #3a2b0d,
+            #171005
+        );
+    box-shadow:
+        0 0 12px
+        rgba(220, 180, 65, .16);
+    transform: translateY(-2px);
+}
+.keypad button:active {
+    transform: scale(.96);
+    border-color: #e0bd58;
+    box-shadow:
+        0 0 18px
+        rgba(224, 189, 88, .30);
+}
+/* special buttons */
+.keypad .special {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+.keypad .clear {
+    color: #a99a78;
+    border-color: #514932;
+}
+.keypad .enter {
+    color: #fff0bd;
+    border-color: #b28d37;
+    background:
+        linear-gradient(
+            145deg,
+            #382908,
+            #171005
+        );
+}
+/* bottom */
+.bottom-actions {
+    width: 480px;
+    margin: 13px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.back-btn {
+    width: 110px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #b6aa8d;
+    border: 1px solid #514932;
+    border-radius: 6px;
+    background: #100d08;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    transition: .2s ease;
+}
+.back-btn:hover {
+    color: #eee1bd;
+    border-color: #927a43;
+    transform: translateY(-1px);
+}
+.secure-note {
+    color: #756644;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+/*short screen */
+@media (max-height: 800px) {
+    .top {
+        height: 78px;
+        padding: 9px 55px;
+    }
+    .logo {
+        width: 44px;
+        height: 44px;
+        font-size: 25px;
+    }
+    .brand-name h2 {
+        font-size: 23px;
+    }
+    .keypad-screen {
+        margin-top: 0;
+    }
+    .heading h1 {
+        font-size: 30px;
+    }
+    .account-display {
+        margin-top: 11px;
+        height: 65px;
+        margin-bottom: 10px;
+    }
+    .keypad button {
+        height: 50px;
+    }
+    .bottom-actions {
+        margin-top: 9px;
+    }
+}
