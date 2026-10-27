@@ -1,0 +1,800 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+    background: #050403;
+}
+
+
+/* ATM */
+
+.atm {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    color: #fff5dc;
+    background:
+        radial-gradient(
+            circle at 65% 48%,
+            rgba(255, 213, 105, .14),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 5% 95%,
+            rgba(181, 127, 30, .12),
+            transparent 34%
+        ),
+        linear-gradient(
+            120deg,
+            #080705,
+            #181207 45%,
+            #070604 100%
+        );
+}
+
+
+/* FRAME */
+
+.atm::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border:
+        1px solid
+        rgba(255, 220, 130, .58);
+    border-radius: 18px;
+    pointer-events: none;
+    box-shadow:
+        inset 0 0 50px
+        rgba(255, 205, 80, .035),
+        0 0 20px
+        rgba(255, 205, 80, .07);
+}
+
+
+/* LIGHTS */
+
+.glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    pointer-events: none;
+}
+
+.glow-one {
+    width: 430px;
+    height: 430px;
+    left: 45%;
+    top: 30%;
+    background:
+        rgba(255, 210, 90, .06);
+    animation:
+        glowOne 7s ease-in-out infinite;
+}
+
+.glow-two {
+    width: 300px;
+    height: 300px;
+    right: -80px;
+    bottom: -80px;
+    background:
+        rgba(210, 155, 35, .08);
+    animation:
+        glowTwo 8s ease-in-out infinite;
+}
+
+
+@keyframes glowOne {
+    0%,
+    100% {
+        transform: scale(.9);
+        opacity: .4;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: .8;
+    }
+}
+
+
+@keyframes glowTwo {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-25px);
+    }
+}
+
+
+/* MOVING LIGHTS */
+
+.scan-light {
+    position: absolute;
+    top: -20%;
+    left: -25%;
+    width: 8%;
+    height: 150%;
+    transform: skewX(-18deg);
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 242, 190, .04),
+            rgba(255, 218, 110, .11),
+            rgba(255, 242, 190, .04),
+            transparent
+        );
+    filter: blur(8px);
+    animation:
+        scan 8s ease-in-out infinite;
+}
+
+
+@keyframes scan {
+    0% {
+        left: -25%;
+    }
+    45% {
+        left: 120%;
+    }
+    100% {
+        left: 120%;
+    }
+}
+
+
+/* HEADER */
+
+header {
+    position: relative;
+    z-index: 5;
+    height: 90px;
+    padding:
+        20px 65px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+
+.logo {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border:
+        1px solid #e5bf55;
+    border-radius: 9px;
+    color: #ffe8a0;
+    font-family: Georgia, serif;
+    font-size: 26px;
+    font-weight: bold;
+    background:
+        linear-gradient(
+            145deg,
+            #3b2c0c,
+            #100c05
+        );
+    box-shadow:
+        0 0 14px
+        rgba(255, 210, 80, .08);
+}
+
+
+.brand h2 {
+    color: #fff0bd;
+    font-family: Georgia, serif;
+    font-size: 25px;
+    letter-spacing: 6px;
+}
+
+
+.brand p {
+    margin-top: 2px;
+    color: #c8a94f;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+
+.secure {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #e2c66f;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+
+.secure span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #48ff93;
+    box-shadow:
+        0 0 10px #48ff93;
+    animation:
+        securePulse 1.7s infinite;
+}
+
+
+@keyframes securePulse {
+    0%,
+    100% {
+        opacity: .35;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+
+/* LED */
+
+.side-led {
+    position: absolute;
+    left: 55px;
+    top: 30%;
+    width: 3px;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 5;
+}
+
+
+.side-led i {
+    width: 3px;
+    height: 22px;
+    border-radius: 4px;
+    background: #d9b64f;
+    box-shadow:
+        0 0 9px
+        rgba(255, 213, 90, .45);
+    animation:
+        ledPulse 2.8s
+        ease-in-out infinite;
+}
+
+
+.side-led i:nth-child(2) {
+    animation-delay: .3s;
+}
+
+.side-led i:nth-child(3) {
+    animation-delay: .6s;
+}
+
+.side-led i:nth-child(4) {
+    animation-delay: .9s;
+}
+
+.side-led i:nth-child(5) {
+    animation-delay: 1.2s;
+}
+
+
+@keyframes ledPulse {
+    0%,
+    100% {
+        opacity: .25;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+
+/* MAIN */
+
+main {
+    position: relative;
+    z-index: 5;
+    width: 900px;
+    margin:
+        15px auto 0;
+}
+
+
+/* TITLE */
+
+.title {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-left: 40px;
+}
+
+
+.title span {
+    color: #e1bd54;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+
+.title h1 {
+    color: #fff5d8;
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+
+/* DEPOSIT */
+
+.deposit-zone {
+    position: relative;
+    width: 100%;
+    height: 275px;
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* LEFT */
+
+.deposit-info {
+    width: 390px;
+    padding-left: 65px;
+}
+
+
+.small-label {
+    color: #e0bd5a;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+
+.deposit-info h3 {
+    margin-top: 13px;
+    color: #fff6dd;
+    font-size: 42px;
+    line-height: 1.08;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+
+.deposit-info p {
+    width: 310px;
+    margin-top: 14px;
+    color: #cdbd92;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+.instruction {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.instruction-light {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #48ff93;
+    box-shadow:
+        0 0 10px #48ff93;
+    animation:
+        securePulse 1.7s infinite;
+}
+
+
+.instruction strong {
+    color: #e9d28c;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+
+/* DEPOSIT */
+
+.deposit-machine {
+    position: relative;
+    width: 390px;
+    height: 245px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* outer machine outline */
+
+.deposit-machine::before {
+    content: "";
+    position: absolute;
+    inset: 12px 25px;
+    border-left:
+        1px solid
+        rgba(255, 214, 92, .25);
+    border-right:
+        1px solid
+        rgba(255, 214, 92, .25);
+}
+
+
+/* CASH SLOT */
+
+.deposit-slot {
+    position: relative;
+    width: 310px;
+    height: 95px;
+    border:
+        1px solid
+        rgba(255, 220, 130, .7);
+    border-radius: 13px;
+    background:
+        linear-gradient(
+            180deg,
+            #1b1508,
+            #060504
+        );
+    box-shadow:
+        inset 0 0 30px
+        rgba(0, 0, 0, .8),
+        0 0 20px
+        rgba(255, 210, 80, .08);
+    animation:
+        slotGlow 3s ease-in-out infinite;
+}
+
+
+@keyframes slotGlow {
+    0%,
+    100% {
+        box-shadow:
+            inset 0 0 30px
+            rgba(0, 0, 0, .8),
+            0 0 15px
+            rgba(255, 210, 80, .05);
+    }
+    50% {
+        box-shadow:
+            inset 0 0 30px
+            rgba(0, 0, 0, .8),
+            0 0 28px
+            rgba(255, 210, 80, .13);
+    }
+}
+
+
+.slot-inner {
+    position: absolute;
+    left: 22px;
+    right: 22px;
+    top: 27px;
+    height: 31px;
+    border-radius: 5px;
+    background:
+        linear-gradient(
+            180deg,
+            #020201,
+            #0d0b07
+        );
+    box-shadow:
+        inset 0 3px 8px
+        rgba(0, 0, 0, .9);
+}
+
+
+.slot-line {
+    position: absolute;
+    left: 55px;
+    right: 55px;
+    top: 41px;
+    height: 2px;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #e1bd54,
+            #fff0ad,
+            #e1bd54,
+            transparent
+        );
+    box-shadow:
+        0 0 9px
+        rgba(255, 220, 100, .35);
+    animation:
+        slotScan 2.8s ease-in-out infinite;
+}
+
+
+@keyframes slotScan {
+    0%,
+    100% {
+        opacity: .35;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+
+.slot-label {
+    margin-top: 15px;
+    color: #ead28a;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+
+.tray-light {
+    width: 100px;
+    height: 2px;
+    margin-top: 10px;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #d8b34d,
+            transparent
+        );
+    box-shadow:
+        0 0 8px
+        rgba(255, 214, 92, .25);
+}
+
+
+/* STATUS */
+
+.deposit-status {
+    width: 620px;
+    height: 64px;
+    margin:
+        10px auto 0;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 0 20px;
+    border-top:
+        1px solid
+        rgba(255, 214, 92, .28);
+    border-bottom:
+        1px solid
+        rgba(255, 214, 92, .28);
+    background:
+        rgba(30, 22, 8, .35);
+}
+
+
+.status-icon {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border:
+        1px solid
+        #d9b64f;
+    border-radius: 50%;
+    color: #ffd967;
+    font-family: Georgia, serif;
+    font-size: 18px;
+}
+
+
+.status-text {
+    flex: 1;
+}
+
+
+.status-text strong {
+    display: block;
+    color: #fff0bd;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+}
+
+
+.status-text span {
+    display: block;
+    margin-top: 3px;
+    color: #c1ad76;
+    font-size: 11px;
+}
+
+
+.status-led {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #48ff93;
+    box-shadow:
+        0 0 10px #48ff93;
+}
+
+
+/* CONTROLS */
+
+.controls {
+    width: 100%;
+    margin-top: 17px;
+    padding: 0 55px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.control {
+    min-width: 210px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    text-decoration: none;
+    border-radius: 7px;
+    transition:
+        .25s ease;
+}
+
+
+.control strong {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+}
+
+
+.control span {
+    font-size: 26px;
+    font-weight: 300;
+}
+
+
+.back {
+    color: #211803;
+    background:
+        linear-gradient(
+            135deg,
+            #fff1b7,
+            #e7bf52,
+            #bd8d1c
+        );
+    border:
+        1px solid
+        #ffe9a2;
+}
+
+
+.continue {
+    color: #fff0bd;
+    border:
+        1px solid
+        rgba(230, 190, 75, .55);
+    background:
+        rgba(35, 27, 9, .72);
+}
+
+
+.control:hover {
+    transform:
+        translateY(-3px);
+    box-shadow:
+        0 0 22px
+        rgba(255, 215, 90, .18);
+}
+
+
+.center-mark {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #907a43;
+    font-family: Georgia, serif;
+    font-size: 9px;
+    letter-spacing: 4px;
+}
+
+
+.center-mark span {
+    width: 35px;
+    height: 1px;
+    background:
+        rgba(214, 166, 41, .35);
+}
+
+
+/* BOTTOM LINE */
+
+.footer-line {
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    bottom: 4%;
+    height: 1px;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 214, 92, .12),
+            rgba(255, 241, 182, .4),
+            rgba(255, 214, 92, .12),
+            transparent
+        );
+}
+
+
+@media (max-height: 800px) {
+    header {
+        height: 75px;
+        padding:
+            14px 55px;
+    }
+
+    main {
+        margin-top: 7px;
+    }
+
+    .title h1 {
+        font-size: 29px;
+    }
+
+    .deposit-zone {
+        height: 230px;
+        margin-top: 18px;
+    }
+
+    .deposit-info h3 {
+        font-size: 35px;
+    }
+
+    .deposit-machine {
+        height: 215px;
+    }
+
+    .deposit-slot {
+        height: 82px;
+    }
+
+    .deposit-status {
+        margin-top: 4px;
+    }
+
+    .controls {
+        margin-top: 9px;
+    }
+}
